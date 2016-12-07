@@ -37,10 +37,12 @@ dependencies {
     compile 'com.orhanobut:logger:1.4'
     compile 'org.greenrobot:eventbus:3.0.0'
     /* //bmob-im:自2.0.5开始提供aar格式：包含BmobNewIM_xxxx.jar、androidasync_2.1.6.jar、bmob_im_notification_strings.xml
-                compile 'cn.bmob.android:bmob-im:2.0.5@aar'
-                //bmob-sdk:3.4.7
-                compile 'cn.bmob.android:bmob-sdk:3.4.7-aar'*/
+                    compile 'cn.bmob.android:bmob-im:2.0.5@aar'
+                    //bmob-sdk:3.4.7
+                    compile 'cn.bmob.android:bmob-sdk:3.4.7-aar'*/
     compile project(':andooptabframe')
     compile project(':andoopwebexplor')
     compile 'com.android.support:recyclerview-v7:25.0.0'
+    compile 'com.tb.emoji:yykEmoji:1.0.0'
+    compile project(':network')
 }

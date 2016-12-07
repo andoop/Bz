@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/andoopwebexplor" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/loginlib" />
+            <option value="$PROJECT_DIR$/network" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

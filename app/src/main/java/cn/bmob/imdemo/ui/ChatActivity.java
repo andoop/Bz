@@ -1,7 +1,11 @@
 package cn.bmob.imdemo.ui;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -28,6 +32,8 @@ import android.widget.Toast;
 
 import com.andoop.ctrlf5.bangzhu.R;
 import com.orhanobut.logger.Logger;
+import com.sqk.emojirelease.Emoji;
+import com.sqk.emojirelease.FaceFragment;
 
 import java.util.HashMap;
 import java.util.List;
@@ -63,7 +69,7 @@ import cn.bmob.v3.exception.BmobException;
  * @project:ChatActivity
  * @date :2016-01-25-18:23
  */
-public class ChatActivity extends ParentWithNaviActivity implements ObseverListener,MessageListHandler{
+public class ChatActivity extends ParentWithNaviActivity implements ObseverListener,MessageListHandler,FaceFragment.OnEmojiClickListener{
 
     @Bind(R.id.ll_chat)
     LinearLayout ll_chat;
@@ -125,6 +131,9 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
         initSwipeLayout();
         initVoiceView();
         initBottomView();
+
+        FaceFragment faceFragment = FaceFragment.Instance();
+        getSupportFragmentManager().beginTransaction().add(R.id.pager_emo,faceFragment).commit();
     }
 
     private void initSwipeLayout(){
@@ -264,6 +273,25 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
                 }
             }
         });
+    }
+
+    @Override
+    public void onEmojiDelete() {
+
+    }
+
+    @Override
+    public void onEmojiClick(Emoji emoji) {
+        Toast.makeText(this, "::"+emoji.getContent()+"::"+emoji.getImageUri()+"::"+emoji.toString(), Toast.LENGTH_SHORT).show();
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), emoji.getImageUri());
+        BmobIMVideoMessage video =new BmobIMVideoMessage(resourceIdToUri(this,emoji.getImageUri()).getEncodedPath());
+        Toast.makeText(this, resourceIdToUri(this,emoji.getImageUri()).toString(), Toast.LENGTH_SHORT).show();
+        c.sendMessage(video, listener);
+    }
+    public static final String ANDROID_RESOURCE = "android.resource://";
+    public static final String FOREWARD_SLASH = "/";
+    private static Uri resourceIdToUri(Context context, int resourceId) {
+        return Uri.parse(ANDROID_RESOURCE + context.getPackageName() + FOREWARD_SLASH + resourceId);
     }
 
     /**

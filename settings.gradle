@@ -1,1 +1,1 @@
-include ':app', ':andooptabframe', ':andoopwebexplor', ':loginlib'
+include ':app', ':andooptabframe', ':andoopwebexplor', ':loginlib', ':network'

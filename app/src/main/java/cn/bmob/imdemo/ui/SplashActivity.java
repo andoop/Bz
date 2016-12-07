@@ -11,9 +11,6 @@ import cn.bmob.imdemo.bean.User;
 import cn.bmob.imdemo.model.UserModel;
 
 /**启动界面
- * @author :smile
- * @project:SplashActivity
- * @date :2016-01-15-18:23
  */
 public class SplashActivity extends BaseActivity {
 
