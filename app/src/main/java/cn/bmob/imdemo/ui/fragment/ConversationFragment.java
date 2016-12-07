@@ -53,7 +53,7 @@ public class ConversationFragment extends ParentWithNaviFragment {
 
     @Override
     protected String title() {
-        return "会话";
+        return "我的消息";
     }
 
     @Override

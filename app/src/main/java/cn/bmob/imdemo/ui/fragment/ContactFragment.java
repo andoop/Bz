@@ -52,7 +52,7 @@ public class ContactFragment extends ParentWithNaviFragment {
 
     @Override
     protected String title() {
-        return "关注的人";
+        return "我的关注";
     }
 
     @Override

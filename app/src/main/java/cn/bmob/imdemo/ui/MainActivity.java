@@ -62,11 +62,12 @@ public class MainActivity extends BaseActivity implements ObseverListener{
     private int index;
     private int currentTabIndex;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_chat);
-       /* //connect server
+        //connect server
         User user = BmobUser.getCurrentUser(this,User.class);
         BmobIM.connect(user.getObjectId(), new ConnectListener() {
             @Override
@@ -88,7 +89,7 @@ public class MainActivity extends BaseActivity implements ObseverListener{
             }
         });
         //解决leancanary提示InputMethodManager内存泄露的问题
-        IMMLeaks.fixFocusedViewLeak(getApplication());*/
+        IMMLeaks.fixFocusedViewLeak(getApplication());
     }
 
     @Override
@@ -99,10 +100,22 @@ public class MainActivity extends BaseActivity implements ObseverListener{
         mTabs[1] = btn_contact;
        // mTabs[2] =btn_set;
         mTabs[0].setSelected(true);
-        initTab();
+
+
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null){
+            int chat = extras.getInt("chat");
+            if(chat==1){
+                //聊天
+                initTab(0);
+            }else if(chat==2){
+                //好友
+                initTab(1);
+            }
+        }
     }
 
-    private void initTab(){
+    private void initTab(int pos){
         conversationFragment = new ConversationFragment();
         setFragment = new SetFragment();
         contactFragment=new ContactFragment();
@@ -113,6 +126,13 @@ public class MainActivity extends BaseActivity implements ObseverListener{
                 /*.add(R.id.fragment_container, setFragment)
                 .hide(setFragment)*/.hide(contactFragment)
                 .show(conversationFragment).commit();
+        if(pos==0){
+            getSupportFragmentManager().beginTransaction().hide(contactFragment).show(conversationFragment)
+                    .commit();
+        }else if(pos==1){
+            getSupportFragmentManager().beginTransaction().show(contactFragment).hide(conversationFragment)
+                    .commit();
+        }
     }
 
     public void onTabSelect(View view) {

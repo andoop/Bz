@@ -9,4 +9,7 @@ package com.andoop.ctrlf5.bangzhu;
 public class BzConstant {
     //sp名称
     public static final String BZ_SP_NAME="bzsp";
+
+    public static final String chat="chat";
+    public static final String msg="msg";
 }

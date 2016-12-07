@@ -2,9 +2,8 @@ package com.andoop.ctrlf5.bangzhu.view;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
@@ -17,7 +16,6 @@ import android.widget.Toast;
 
 import com.andoop.ctrlf5.bangzhu.MainActivity;
 import com.andoop.ctrlf5.bangzhu.R;
-import com.andoop.ctrlf5.bangzhu.customview.GrideRelativeLayout;
 import com.andoop.ctrlf5.bangzhu.customview.MTextView;
 import com.andoop.ctrlf5.bangzhu.modle.ChooseDataBean;
 import com.andoop.ctrlf5.bangzhu.presenter.SkillChooseViewPresenter;

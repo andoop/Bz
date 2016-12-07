@@ -1,5 +1,6 @@
 package com.andoop.ctrlf5.bangzhu.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,6 +32,7 @@ public class BzIndexPager extends BzBasePager {
     private IndexViewPresenter indexViewPresenter;
     private RecyclerView recyclerView;
     private List<ListShowDataBean> dataBeanList;
+    TextView searchView;
     @Override
     public void onSelect(AndoopPage andoopPage, int pos) {
 
@@ -46,7 +48,13 @@ public class BzIndexPager extends BzBasePager {
         super.onActivityCreated(savedInstanceState);
         recyclerView = (RecyclerView) getView().findViewById(R.id.rv_index_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
+        searchView= (TextView) getView().findViewById(R.id.tv_index_search);
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().startActivity(new Intent(getActivity(),BzSearchActivity.class));
+            }
+        });
         title.setText("广场");
         add.setVisibility(View.VISIBLE);
         add.setOnClickListener(new View.OnClickListener() {

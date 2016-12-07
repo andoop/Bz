@@ -28,7 +28,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <!-- bmob即时通讯 -->
         <receiver android:name="cn.bmob.newim.core.ConnectChangeReceiver">
             <intent-filter>
@@ -74,7 +74,9 @@
             android:name="cn.bmob.imdemo.ui.ChatActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity android:name=".view.SkillChooseActivity"></activity>
+        <activity android:name=".view.SkillChooseActivity" />
+        <activity android:name=".view.BzSearchActivity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

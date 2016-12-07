@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.andoop.andooptabframe.AndoopPage;
 import com.andoop.ctrlf5.bangzhu.R;
+import com.andoop.ctrlf5.bangzhu.presenter.PersonalViewPresenter;
 
 import cn.bmob.imdemo.model.UserModel;
 import cn.bmob.imdemo.ui.LoginActivity;
@@ -21,6 +22,9 @@ import cn.bmob.newim.BmobIM;
 * * * * * * * * * * * * * * * * * * */
 
 public class BzPersionPager extends BzBasePager {
+
+    private PersonalViewPresenter personalViewPresenter;
+
     @Override
     public void onSelect(AndoopPage andoopPage, int pos) {
 
@@ -35,10 +39,25 @@ public class BzPersionPager extends BzBasePager {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         title.setText("我的");
-        getView().findViewById(R.id.bt_f_p_message).setOnClickListener(new View.OnClickListener() {
+        getView().findViewById(R.id.rl_person_msg).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().startActivity(new Intent(getActivity(),MainActivity.class));
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Bundle extra=new Bundle();
+                extra.putInt("chat",1);
+                intent.putExtras(extra);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        getView().findViewById(R.id.rl_person_gz).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Bundle extra=new Bundle();
+                extra.putInt("chat",2);
+                intent.putExtras(extra);
+                getActivity().startActivity(intent);
             }
         });
 
@@ -52,5 +71,7 @@ public class BzPersionPager extends BzBasePager {
                 getActivity().finish();
             }
         });
+
+        personalViewPresenter = new PersonalViewPresenter(this);
     }
 }

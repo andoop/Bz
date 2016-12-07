@@ -37,6 +37,13 @@ public abstract class ParentWithNaviFragment extends BaseFragment {
         tv_right.setVisibility(View.GONE);
         tv_title.setText(title());
         refreshTop();
+
+        tv_left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {
@@ -61,7 +68,7 @@ public abstract class ParentWithNaviFragment extends BaseFragment {
     };
 
     private void refreshTop() {
-        setLeftView(left());
+       // setLeftView(left());
         setValue(R.id.tv_right, right());
         this.tv_title.setText(title());
     }
