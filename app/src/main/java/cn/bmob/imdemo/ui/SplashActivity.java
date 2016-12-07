@@ -11,6 +11,7 @@ import cn.bmob.imdemo.bean.User;
 import cn.bmob.imdemo.model.UserModel;
 
 /**启动界面
+
  */
 public class SplashActivity extends BaseActivity {
 

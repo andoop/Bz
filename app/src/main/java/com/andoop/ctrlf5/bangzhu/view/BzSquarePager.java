@@ -28,6 +28,6 @@ public class BzSquarePager extends BzBasePager {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        title.setText("广场");
+        title.setText("话题");
     }
 }

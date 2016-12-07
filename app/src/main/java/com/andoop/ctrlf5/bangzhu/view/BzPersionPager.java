@@ -34,7 +34,7 @@ public class BzPersionPager extends BzBasePager {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        title.setText("个人中心");
+        title.setText("我的");
         getView().findViewById(R.id.bt_f_p_message).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,8 +48,8 @@ public class BzPersionPager extends BzBasePager {
                 UserModel.getInstance().logout();
                 //可断开连接
                 BmobIM.getInstance().disConnect();
-                getActivity().finish();
                 getActivity().startActivity(new Intent(getActivity(),LoginActivity.class));
+                getActivity().finish();
             }
         });
     }

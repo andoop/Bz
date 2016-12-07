@@ -69,25 +69,6 @@ public class MainActivity extends AppCompatActivity {
         });
         //解决leancanary提示InputMethodManager内存泄露的问题
         IMMLeaks.fixFocusedViewLeak(getApplication());
-
-       /* String uid = new SPUtils(this, SPColumns.SP_NAME).getString(SPColumns.BZ_UID);
-        BmobIM.connect(uid, new ConnectListener() {
-            @Override
-            public void done(String uid, BmobException e) {
-                if (e == null) {
-                    Log.e("----->" + "MainActivity", "done:" + "success");
-                } else {
-                    Log.e("----->" + "MainActivity", "done:" + e.getMessage());
-                }
-            }
-        });
-        //监听长连接状态
-        BmobIM.getInstance().setOnConnectStatusChangeListener(new ConnectStatusChangeListener() {
-            @Override
-            public void onChange(ConnectionStatus status) {
-                Log.e("----->" + "MainActivity", "onChange:" + status.getMsg());
-            }
-        });*/
     }
 
     private void initTabPage() {
@@ -99,11 +80,11 @@ public class MainActivity extends AppCompatActivity {
         AndoopTabFrame.getInstance().build(this, R.id.content_main, new AndoopFrameListener() {
             @Override
             public void onReady(AndoopFrame andoopFrame) {
-                andoopFrame.addPage(new BzIndexPager(),R.drawable.home_selector,"首页");
-                andoopFrame.addPage(new BzExchangePager(),R.drawable.exchage_selector,"技能");
-                andoopFrame.addPage(new BzSquarePager(),R.drawable.social_selector,"广场");
+                andoopFrame.addPage(new BzIndexPager(),R.drawable.home_selector,"广场");
+                andoopFrame.addPage(new BzExchangePager(),R.drawable.exchage_selector,"发现");
+                andoopFrame.addPage(new BzSquarePager(),R.drawable.social_selector,"话题");
                // andoopFrame.addPage(new BzMessagePager(),R.drawable.message_selector,"消息");
-                andoopFrame.addPage(new BzPersionPager(),R.drawable.person_selector,"个人");
+                andoopFrame.addPage(new BzPersionPager(),R.drawable.person_selector,"我的");
                 andoopFrame.commit();
             }
 

@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.andoop.andooptabframe.AndoopPage;
@@ -18,6 +19,7 @@ import com.andoop.ctrlf5.bangzhu.R;
 
 public abstract class BzBasePager extends AndoopPage {
     protected TextView title;
+    protected ImageView add;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public abstract class BzBasePager extends AndoopPage {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         title= (TextView) getView().findViewById(R.id.tv_title_cm_title);
+        add= (ImageView) getView().findViewById(R.id.iv_add_cm_title);
     }
     protected abstract View createView(LayoutInflater inflater);
 }

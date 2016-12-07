@@ -28,6 +28,6 @@ public class BzExchangePager extends BzBasePager {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        title.setText("技能交换");
+        title.setText("发现");
     }
 }

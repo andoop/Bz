@@ -1,12 +1,14 @@
 package cn.bmob.imdemo.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.andoop.ctrlf5.bangzhu.R;
+import com.andoop.ctrlf5.bangzhu.*;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -52,7 +54,9 @@ public class LoginActivity extends BaseActivity {
                 if (e == null) {
                     User user =(User)o;
                     BmobIM.getInstance().updateUserInfo(new BmobIMUserInfo(user.getObjectId(), user.getUsername(), user.getAvatar()));
-                    startActivity(com.andoop.ctrlf5.bangzhu.MainActivity.class, null, true);
+                    Log.e("----->" + "LoginActivity", "done:" + ""+user.toString());
+                   startActivity(new Intent(LoginActivity.this, com.andoop.ctrlf5.bangzhu.view.SkillChooseActivity.class));
+                    LoginActivity.this.finish();
                 } else {
                     toast(e.getMessage() + "(" + e.getErrorCode() + ")");
                 }
