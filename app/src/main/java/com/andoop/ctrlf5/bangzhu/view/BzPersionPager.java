@@ -72,6 +72,13 @@ public class BzPersionPager extends BzBasePager {
             }
         });
 
+        getView().findViewById(R.id.rl_person_person).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().startActivity(new Intent(getActivity(),PersonMsgActivity.class));
+            }
+        });
+
         personalViewPresenter = new PersonalViewPresenter(this);
     }
 }

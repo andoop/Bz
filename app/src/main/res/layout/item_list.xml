@@ -59,6 +59,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="6dp"
                 android:text="已接单"
+                android:visibility="gone"
                 android:textColor="@color/gray"
                 android:textSize="16sp" />
         </RelativeLayout>
@@ -90,12 +91,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/your_need"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_gravity="center_vertical"
                     android:textColor="@color/gray"
-                    android:drawableLeft="@drawable/your_need"
                     android:text="需求:"/>
 
                 <TextView
@@ -114,12 +120,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:orientation="horizontal">
-
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/money"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/gray"
-                    android:drawableLeft="@drawable/money"
+                    android:layout_marginLeft="3dp"
+                    android:layout_gravity="center_vertical"
                     android:text="悬赏:"/>
                 <TextView
                     android:id="@+id/tv_item_list_xuanshang"
@@ -164,7 +175,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/colorPrimary"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"

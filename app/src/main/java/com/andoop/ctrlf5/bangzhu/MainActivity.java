@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     private void initTabPage() {
         TabFrameConfig tabconfig=new TabFrameConfig.Builder()
                 .canScroll(false)
-                .tabColorString("#3F51B5")
+                .tabColorString("#ffffff")
                 .build();
         AndoopTabFrame.getInstance().init(tabconfig);
         AndoopTabFrame.getInstance().build(this, R.id.content_main, new AndoopFrameListener() {

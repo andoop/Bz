@@ -7,6 +7,7 @@ package com.andoop.ctrlf5.bangzhu.presenter;
 * * * * * * * * * * * * * * * * * * */
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.andoop.ctrlf5.bangzhu.modle.ChooseDataBean;
 import com.andoop.ctrlf5.bangzhu.view.SkillChooseActivity;
@@ -55,5 +56,9 @@ public class SkillChooseViewPresenter {
             aaa=aaa+" : "+ss;
         }
         Log.e("----->" + "SkillChooseVie", "postData:" + aaa);
+    }
+
+    public void updateSkills(List<String> chooseskills) {
+        Toast.makeText(chooseActivity, "更改技能", Toast.LENGTH_SHORT).show();
     }
 }

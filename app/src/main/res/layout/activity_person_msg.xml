@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/activity_person_msg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.andoop.ctrlf5.bangzhu.view.PersonMsgActivity">
+        <include android:id="@+id/ll_person_msg" layout="@layout/include_navi"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="6dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <com.andoop.ctrlf5.bangzhu.customview.XCRoundImageView
+                    android:id="@+id/iv_person_msg_icon"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@mipmap/ic_launcher"/>
+
+                <TextView
+                    android:id="@+id/tv_person_msg_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:text="姓名"/>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_person_msg_zc"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="专长技能"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_tag_bg"
+                android:textColor="#fff"
+                android:text="java"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_tag_bg"
+                android:textColor="#fff"
+                android:layout_marginLeft="5dp"
+                android:text="php"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_tag_bg"
+                android:textColor="#fff"
+                android:layout_marginLeft="5dp"
+                android:text="视频剪辑"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/forward"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_person_msg_time"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_marginTop="5dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="空余时间"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:layout_marginLeft="5dp"
+                android:text="3"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/forward"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_person_msg_phone"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_marginTop="5dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="手机"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:layout_marginLeft="5dp"
+                android:text="13930492907"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/forward"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_person_msg_qq"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_marginTop="1dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="QQ"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:layout_marginLeft="5dp"
+                android:text="252201835"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/forward"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_person_msg_email"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_marginTop="1dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="email"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:layout_marginLeft="5dp"
+                android:text="13930492907@163.com"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/forward"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_person_msg_sex"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_marginTop="5dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="性别"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:layout_marginLeft="5dp"
+                android:text="男"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/forward"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_person_msg_position"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_marginTop="1dp"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="职位"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:layout_marginLeft="5dp"
+                android:text="工程师"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/forward"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+

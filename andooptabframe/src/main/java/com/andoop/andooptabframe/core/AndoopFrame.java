@@ -99,7 +99,7 @@ public class AndoopFrame extends Fragment implements ViewPager.OnPageChangeListe
     public AndoopFrame addPage(AndoopPage page, int resid, String text) {
         TabBtView tabBtView = new TabBtView(getActivity())
                 .icon(resid,dip2px(getActivity(),30),dip2px(getActivity(),30))
-                .text(text,10,text,"#ffffff");
+                .text(text,10,text,"#3F51B5");
         //添加tab按钮
         LinearLayout.LayoutParams param=new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
         param.weight=1;

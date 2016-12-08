@@ -6,14 +6,15 @@
     <include layout="@layout/comment_title"/>
 
     <RelativeLayout
+        android:id="@+id/rl_person_person"
         android:layout_width="match_parent"
         android:background="#fff"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="6dp"
         android:layout_height="wrap_content">
-        <ImageView
+        <com.andoop.ctrlf5.bangzhu.customview.XCRoundImageView
             android:id="@+id/iv_personla_icon"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@mipmap/ic_launcher"/>
         <TextView
             android:id="@+id/tv_personal_name"
@@ -22,7 +23,7 @@
             android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="17sp"
             android:textColor="@color/black"
             android:text="姓名"/>
     </RelativeLayout>
@@ -35,10 +36,11 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/iv_person_item_msg"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/my_msg"/>
 
         <TextView
             android:id="@+id/tv_person_item_title_msg"
@@ -66,7 +68,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/forward"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -78,10 +80,11 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/iv_person_item_gz"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/my_guanzhu"/>
 
         <TextView
             android:id="@+id/tv_person_item_title_gz"
@@ -107,7 +110,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/forward"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -118,10 +121,11 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/iv_person_item_xq"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/my_xuqiu"/>
 
         <TextView
             android:id="@+id/tv_person_item_title_xq"
@@ -149,7 +153,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/forward"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -159,10 +163,11 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/iv_person_item_qd"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/my_qiangdan"/>
 
         <TextView
             android:id="@+id/tv_person_item_title_qd"
@@ -188,7 +193,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/forward"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -198,10 +203,11 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/iv_person_item_ht"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/my_fabiao_huti"/>
 
         <TextView
             android:id="@+id/tv_person_item_title_ht"
@@ -229,7 +235,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/forward"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -237,12 +243,6 @@
         android:background="#fff"
         android:layout_marginTop="2dp"
         android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/iv_person_item_hf"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher"/>
 
         <TextView
             android:id="@+id/tv_person_item_title_hf"
@@ -268,7 +268,17 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/forward"/>
+
+        <ImageView
+            android:id="@+id/iv_person_item_hf"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/my_huifu_huti"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </RelativeLayout>
     <Button
         android:id="@+id/bt_f_p_signout"

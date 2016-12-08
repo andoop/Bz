@@ -28,19 +28,19 @@
         <View
             android:id="@+id/faxian_01"
             android:layout_width="match_parent"
-            android:background="@color/gray"
+            android:background="@color/Bg"
             android:layout_below="@+id/ll_faxian_item_title"
             android:layout_height="1dp"/>
         <View
             android:id="@+id/faxian_02"
             android:layout_width="match_parent"
-            android:background="@color/gray"
+            android:background="@color/Bg"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
             android:layout_below="@+id/ll_faxian_item_title"
             android:layout_height="1dp"/>
 
-        <ImageView
+        <com.andoop.ctrlf5.bangzhu.customview.XCRoundImageView
             android:id="@+id/iv_faxian_item_icon"
             android:layout_width="55dp"
             android:layout_height="55dp"

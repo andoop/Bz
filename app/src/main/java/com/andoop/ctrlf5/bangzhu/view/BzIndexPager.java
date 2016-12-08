@@ -61,6 +61,8 @@ public class BzIndexPager extends BzBasePager {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "添加", Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(getActivity(),FabuActivity.class));
             }
         });
 

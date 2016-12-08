@@ -7,8 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.andoop.ctrlf5.bangzhu.*;
+import com.andoop.ctrlf5.bangzhu.data.net.Api;
+import com.dvx.network.NetCallback;
+import com.dvx.network.NetWorkExcutor;
+import com.dvx.network.request.DefaultPostRequest;
+import com.dvx.network.worker.NetError;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -47,11 +53,31 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.btn_login)
     public void onLoginClick(View view){
+
+
+        DefaultPostRequest defaultPostRequest = new DefaultPostRequest().url(Api.login)
+                .addParam("username",et_username.getText().toString().trim())
+                .addParam("password",et_password.getText().toString().trim())
+                .addCallback(new NetCallback() {
+                    @Override
+                    public void onSuccess(String datastr) {
+                        Toast.makeText(LoginActivity.this, datastr, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFail(NetError netError) {
+                        Toast.makeText(LoginActivity.this, netError.getText(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+        NetWorkExcutor.getInstance().excutePost(defaultPostRequest);
+
+
         UserModel.getInstance().login(et_username.getText().toString(), et_password.getText().toString(), new LogInListener() {
 
             @Override
             public void done(Object o, BmobException e) {
                 if (e == null) {
+
                     User user =(User)o;
                     BmobIM.getInstance().updateUserInfo(new BmobIMUserInfo(user.getObjectId(), user.getUsername(), user.getAvatar()));
                     Log.e("----->" + "LoginActivity", "done:" + ""+user.toString());
