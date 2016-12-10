@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.andoop.ctrlf5.bangzhu.R;
+import com.andoop.ctrlf5.bangzhu.modle.BzUser;
 import com.orhanobut.logger.Logger;
 
 import org.greenrobot.eventbus.EventBus;
@@ -69,7 +70,7 @@ public class MainActivity extends BaseActivity implements ObseverListener{
         setContentView(R.layout.activity_main_chat);
         //connect server
         User user = BmobUser.getCurrentUser(this,User.class);
-        BmobIM.connect(user.getObjectId(), new ConnectListener() {
+        BmobIM.connect(BzUser.getCurentuser().getUserinfo().getUid()+"", new ConnectListener() {
             @Override
             public void done(String uid, BmobException e) {
                 if (e == null) {
@@ -206,7 +207,7 @@ public class MainActivity extends BaseActivity implements ObseverListener{
     }
 
     private void checkRedPoint(){
-        int count = (int)BmobIM.getInstance().getAllUnReadCount();
+       /* int count = (int)BmobIM.getInstance().getAllUnReadCount();
         if(count>0){
             iv_conversation_tips.setVisibility(View.VISIBLE);
         }else{
@@ -217,7 +218,7 @@ public class MainActivity extends BaseActivity implements ObseverListener{
             iv_contact_tips.setVisibility(View.VISIBLE);
         }else{
             iv_contact_tips.setVisibility(View.GONE);
-        }
+        }*/
     }
 
 }

@@ -64,12 +64,14 @@
                 android:text="专长技能"/>
 
             <TextView
+                android:id="@+id/jn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_tag_bg"
                 android:textColor="#fff"
                 android:text="java"/>
             <TextView
+                android:id="@+id/jn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_tag_bg"
@@ -77,6 +79,7 @@
                 android:layout_marginLeft="5dp"
                 android:text="php"/>
             <TextView
+                android:id="@+id/jn3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_tag_bg"
@@ -111,6 +114,7 @@
                 android:text="空余时间"/>
 
             <TextView
+                android:id="@+id/msg_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gray"
@@ -155,6 +159,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
+                android:visibility="invisible"
                 android:src="@drawable/forward"/>
 
         </LinearLayout>
@@ -187,6 +192,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
+                android:visibility="invisible"
                 android:src="@drawable/forward"/>
 
         </LinearLayout>
@@ -219,6 +225,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
+                android:visibility="invisible"
                 android:src="@drawable/forward"/>
 
         </LinearLayout>
@@ -253,6 +260,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
+                android:visibility="invisible"
                 android:src="@drawable/forward"/>
 
         </LinearLayout>
@@ -285,6 +293,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
+                android:visibility="invisible"
                 android:src="@drawable/forward"/>
 
         </LinearLayout>

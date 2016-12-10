@@ -1,22 +1,30 @@
 package com.andoop.ctrlf5.bangzhu.view;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.a.a.V;
 import com.andoop.andooptabframe.AndoopPage;
 import com.andoop.ctrlf5.bangzhu.R;
+import com.andoop.ctrlf5.bangzhu.modle.DiscoverDataBean;
 import com.andoop.ctrlf5.bangzhu.modle.FaxianDataBean;
 import com.andoop.ctrlf5.bangzhu.presenter.FaXianViewPresenter;
+import com.andoop.ctrlf5.bangzhu.utils.DialogUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
@@ -31,8 +39,12 @@ import java.util.List;
 public class BzExchangePager extends BzBasePager {
     private TextView tv_search;
     private RecyclerView recyclerView;
-    private List<FaxianDataBean> mDatas_rm;
-    private List<FaxianDataBean> mDatas_tj;
+    private List<DiscoverDataBean.DataBean.RecommendBean> mDatas_tj;
+    private List<DiscoverDataBean.DataBean.HotBean> mDatas_rm;
+    private FloatingActionButton floatingActionButton;
+    private FaXianViewPresenter faXianViewPresenter;
+    private Dialog dialog;
+
     @Override
     public void onSelect(AndoopPage andoopPage, int pos) {
 
@@ -49,23 +61,64 @@ public class BzExchangePager extends BzBasePager {
         title.setText("发现");
         tv_search= (TextView) getView().findViewById(R.id.tv_faxian_search);
         recyclerView= (RecyclerView) getView().findViewById(R.id.rv_faxian_list);
+        floatingActionButton= (FloatingActionButton) getView().findViewById(R.id.flbt);
         mDatas_rm=new ArrayList<>();
         mDatas_tj=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new FaxianAdapter());
 
-        FaXianViewPresenter faXianViewPresenter = new FaXianViewPresenter(this);
+        faXianViewPresenter = new FaXianViewPresenter(this);
+        floatingActionButton.setVisibility(View.GONE);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatas_rm.clear();
+                mDatas_tj.clear();
+                faXianViewPresenter.loadData();
+            }
+        });
+
+        getView().findViewById(R.id.tv_faxian_search).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().startActivity(new Intent(getActivity(),BzSearchFaxianActivity.class));
+            }
+        });
+
         faXianViewPresenter.loadData();
     }
 
+    public void success(){
+        floatingActionButton.clearAnimation();
+    }
+
     public void showloading(){
-        Toast.makeText(getActivity(), "加载中", Toast.LENGTH_SHORT).show();
+        dialog = DialogUtils.showLoadingView(getActivity());
+        int pivotType = Animation.RELATIVE_TO_SELF; // 相对于自己
+        float pivotX = .5f; // 取自身区域在X轴上的中心点
+        float pivotY = .5f; // 取自身区域在Y轴上的中心点
+        RotateAnimation rotateAnimation = new RotateAnimation(0f, 360f, pivotType, pivotX, pivotType, pivotY);// 围绕自身的中心点进行旋转
+        rotateAnimation.setRepeatMode(Animation.INFINITE);
+        rotateAnimation.setRepeatCount(Animation.INFINITE);
+        rotateAnimation.setDuration(500);
+        floatingActionButton.clearAnimation();
+        floatingActionButton.startAnimation(rotateAnimation);
+
     }
     public void showErr(String err){
+        dialog.dismiss();
         Toast.makeText(getActivity(), err, Toast.LENGTH_SHORT).show();
     }
 
-    public void showData(List<FaxianDataBean> data_rm,List<FaxianDataBean> data_tj){
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (dialog!=null)
+            dialog.dismiss();
+    }
+
+    public void showData(List<DiscoverDataBean.DataBean.HotBean> data_rm, List<DiscoverDataBean.DataBean.RecommendBean> data_tj){
+        dialog.dismiss();
         mDatas_rm.addAll(data_rm);
         mDatas_tj.addAll(data_tj);
         recyclerView.getAdapter().notifyDataSetChanged();
@@ -80,7 +133,17 @@ public class BzExchangePager extends BzBasePager {
         public void onBindViewHolder(FaxianViewHolder holder, int position) {
             FaxianDataBean dataBean=null;
           if(position<mDatas_rm.size()){
-              dataBean=mDatas_rm.get(position);
+              DiscoverDataBean.DataBean.HotBean hotBean = mDatas_rm.get(position);
+              dataBean=new FaxianDataBean();
+              dataBean.id=hotBean.getUid()+"";
+              dataBean.name=hotBean.getName();
+              dataBean.zhiwei=hotBean.getPosition();
+              dataBean.sex=hotBean.getGender();
+              dataBean.tags=hotBean.getSkills();
+              dataBean.headerimg=hotBean.getAvatar();
+              dataBean.belong="热门";
+
+
               if(position!=0){
                   //隐藏title
                   holder.lltitle.setVisibility(View.GONE);
@@ -96,7 +159,16 @@ public class BzExchangePager extends BzBasePager {
                   holder.vv.setVisibility(View.GONE);
               }
           }else {
-              dataBean=mDatas_tj.get(position-mDatas_rm.size());
+              DiscoverDataBean.DataBean.RecommendBean recommendBean = mDatas_tj.get(position - mDatas_rm.size());
+              dataBean=new FaxianDataBean();
+              dataBean.id=recommendBean.getUid()+"";
+              dataBean.name=recommendBean.getName();
+              dataBean.zhiwei=recommendBean.getPosition();
+              dataBean.sex=recommendBean.getGender();
+              dataBean.tags=recommendBean.getSkills();
+              dataBean.headerimg=recommendBean.getAvatar();
+              dataBean.belong="推荐";
+
               if(position!=mDatas_rm.size()){
                   //隐藏title
                   holder.lltitle.setVisibility(View.GONE);
@@ -113,6 +185,8 @@ public class BzExchangePager extends BzBasePager {
                   holder.vv.setVisibility(View.GONE);
               }
           }
+            holder.ll_faxian.setTag(dataBean.id);
+
             holder.title.setText(dataBean.belong);
             holder.name.setText(dataBean.name);
             holder.zhiwei.setText(dataBean.zhiwei);
@@ -151,6 +225,7 @@ public class BzExchangePager extends BzBasePager {
          public LinearLayout lltitle;
          public View v_title_lie;
          public View vv;
+         public RelativeLayout ll_faxian;
         public FaxianViewHolder(View itemView) {
             super(itemView);
             icon= (ImageView) itemView.findViewById(R.id.iv_faxian_item_icon);
@@ -164,6 +239,20 @@ public class BzExchangePager extends BzBasePager {
             vv=itemView.findViewById(R.id.v_faxian_item_vvv);
             v_title_lie=itemView.findViewById(R.id.faxian_01);
             lltitle= (LinearLayout) itemView.findViewById(R.id.ll_faxian_item_title);
+            ll_faxian= (RelativeLayout) itemView.findViewById(R.id.ll_faxian);
+            ll_faxian.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Object tag = v.getTag();
+                    if(tag!=null){
+                        Intent intent = new Intent(getActivity(), PersonZiLiaoActivity.class);
+                        Bundle extra=new Bundle();
+                        extra.putString("id",v.getTag().toString());
+                        intent.putExtras(extra);
+                        startActivity(intent);
+                    }
+                }
+            });
         }
     }
 }

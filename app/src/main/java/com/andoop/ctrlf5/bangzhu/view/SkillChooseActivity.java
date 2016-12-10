@@ -1,6 +1,7 @@
 package com.andoop.ctrlf5.bangzhu.view;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -24,6 +25,7 @@ import com.andoop.ctrlf5.bangzhu.R;
 import com.andoop.ctrlf5.bangzhu.customview.MTextView;
 import com.andoop.ctrlf5.bangzhu.modle.ChooseDataBean;
 import com.andoop.ctrlf5.bangzhu.presenter.SkillChooseViewPresenter;
+import com.andoop.ctrlf5.bangzhu.utils.DialogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,10 @@ public class SkillChooseActivity extends AppCompatActivity {
     private EditText editText;
     //默认只能选择三个技能
     private int chooseCount=3;
+    private Dialog dialog;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +105,7 @@ public class SkillChooseActivity extends AppCompatActivity {
                             setResult(100,intent);
                             finish();
                         }else {
-                            presenter.updateSkills(chooseskills);
+                            presenter.postData1(chooseskills);
                         }
                     }
                 });
@@ -161,7 +167,17 @@ public class SkillChooseActivity extends AppCompatActivity {
         }
     }
 
+
+    public void success(){
+        if (dialog!=null)
+        dialog.dismiss();
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
+    }
+
     public void showError(String err){
+        if (dialog!=null)
+        dialog.dismiss();
         Toast.makeText(this,err, Toast.LENGTH_SHORT).show();
     }
     public void entrymain(View view){
@@ -171,8 +187,7 @@ public class SkillChooseActivity extends AppCompatActivity {
         }
         Toast.makeText(this, "进入首页", Toast.LENGTH_SHORT).show();
         presenter.postData(chooseskills);
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
+
     }
     public void chooseother(View v){
         String trim = editText.getText().toString().trim();
@@ -191,5 +206,16 @@ public class SkillChooseActivity extends AppCompatActivity {
             ((TextView) v).setTextColor(Color.WHITE);
             chooseskills.add(trim);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(dialog!=null)
+        dialog.dismiss();
+        super.onDestroy();
+    }
+
+    public void showLoading() {
+        dialog = DialogUtils.showLoadingView(this);
     }
 }

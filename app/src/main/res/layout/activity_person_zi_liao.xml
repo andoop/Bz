@@ -92,8 +92,21 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="3dp"
             android:layout_marginLeft="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
             android:text="专长技能"/>
         <TextView
+            android:id="@+id/tv_zl_jn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_tag_bg"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:layout_marginLeft="5dp"
+            android:text="java"/>
+        <TextView
+            android:id="@+id/tv_zl_jn2"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_tag_bg"
@@ -102,14 +115,8 @@
             android:layout_marginLeft="5dp"
             android:text="专长技能"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/text_tag_bg"
-            android:textColor="#fff"
-            android:textSize="16sp"
-            android:layout_marginLeft="5dp"
-            android:text="专长技能"/>
-        <TextView
+            android:id="@+id/tv_zl_jn3"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_tag_bg"
@@ -119,4 +126,79 @@
             android:text="专长技能"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:text="空闲时间"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:text="周一  13：00 - 14:00\n双休 10:00 - 15:00 "/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:text="联系方式"/>
+
+        <TextView
+            android:id="@+id/tv_zl_lianxi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:text="手机  13930492907\nQQ 252201835\nemail eeee@ddd.con"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="70dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:onClick="faxiaoxi"
+        android:background="@color/colorPrimary"
+        android:text="发消息"/>
+
 </LinearLayout>

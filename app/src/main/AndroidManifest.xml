@@ -22,10 +22,12 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:name="cn.bmob.imdemo.BmobIMApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -78,10 +80,16 @@
         <activity
             android:name=".view.BzSearchActivity"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".view.BzSearchFaxianActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".view.PersonMsgActivity" />
         <activity android:name=".view.FabuActivity" />
         <activity android:name=".view.FaBuHuaTiActivity" />
-        <activity android:name=".view.PersonZiLiaoActivity"></activity>
+        <activity android:name=".view.PersonZiLiaoActivity" />
+        <activity android:name=".view.QiangDanActivity" />
+        <activity android:name=".view.BzWebActivity" />
+        <activity android:name=".view.ShezhiActivity"></activity>
     </application>
 
 </manifest>

@@ -12,4 +12,5 @@ public class FaxianDataBean {
     public String zhiwei;
     public int sex;//1 男  2 女
     public String headerimg;
+    public String id;
 }

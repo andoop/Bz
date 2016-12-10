@@ -3,8 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include layout="@layout/comment_title"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="广场"/>
+<com.andoop.ctrlf5.bangzhu.customview.BzWebView
+    android:id="@+id/faxian_wb"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
 </LinearLayout>

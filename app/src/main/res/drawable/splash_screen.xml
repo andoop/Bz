@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:drawable="@color/colorAccent"/>
+        android:drawable="@color/colorSplash"/>
 
     <item>
         <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-            android:src="@drawable/bz"
+            android:src="@drawable/splash"
             android:gravity="center"
             />
+
     </item>
 </layer-list>

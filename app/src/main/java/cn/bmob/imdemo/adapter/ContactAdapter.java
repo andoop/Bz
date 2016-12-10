@@ -38,11 +38,12 @@ public class ContactAdapter extends BaseRecyclerAdapter<Friend> {
             //好友名称
             holder.setText(R.id.tv_recent_name,user==null?"未知":user.getUsername());
         }else if(holder.layoutId==R.layout.header_new_friend){
-            if(NewFriendManager.getInstance(context).hasNewFriendInvitation()){
+           /* if(NewFriendManager.getInstance(context).hasNewFriendInvitation()){
                 holder.setVisible(R.id.iv_msg_tips,View.VISIBLE);
             }else{
                 holder.setVisible(R.id.iv_msg_tips, View.GONE);
-            }
+            }*/
+            holder.setVisible(R.id.iv_msg_tips, View.GONE);
         }
     }
 

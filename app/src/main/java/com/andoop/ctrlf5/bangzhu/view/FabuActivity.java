@@ -1,5 +1,6 @@
 package com.andoop.ctrlf5.bangzhu.view;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.andoop.ctrlf5.bangzhu.R;
 import com.andoop.ctrlf5.bangzhu.modle.FabuBean;
 import com.andoop.ctrlf5.bangzhu.presenter.FaBuJnViewPersenter;
+import com.andoop.ctrlf5.bangzhu.utils.DialogUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,6 +30,8 @@ public class FabuActivity extends AppCompatActivity {
     String xuanshang="";
     String jn="";
     Map<Integer,View> tags;
+    private Dialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,12 +117,16 @@ public class FabuActivity extends AppCompatActivity {
 
     public void showloading(){
         Toast.makeText(this, "发布中", Toast.LENGTH_SHORT).show();
+        dialog = DialogUtils.showLoadingView(this);
     }
     public void success(){
         Toast.makeText(this, "发布成功", Toast.LENGTH_SHORT).show();
+        dialog.dismiss();
+        finish();
     }
     public void showErr(String err){
         Toast.makeText(this, err, Toast.LENGTH_SHORT).show();
+        dialog.dismiss();
     }
 
 
@@ -134,4 +142,6 @@ public class FabuActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }

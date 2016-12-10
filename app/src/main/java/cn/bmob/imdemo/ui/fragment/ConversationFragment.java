@@ -192,11 +192,11 @@ public class ConversationFragment extends ParentWithNaviFragment {
                 }
             }
         }
-        //添加新朋友会话-获取好友请求表中最新一条记录
+      /*  //添加新朋友会话-获取好友请求表中最新一条记录
         List<NewFriend> friends = NewFriendManager.getInstance(getActivity()).getAllNewFriend();
         if(friends!=null && friends.size()>0){
             conversationList.add(new NewFriendConversation(friends.get(0)));
-        }
+        }*/
         //重新排序
         Collections.sort(conversationList);
         return conversationList;

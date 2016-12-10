@@ -32,8 +32,7 @@ import android.widget.Toast;
 
 import com.andoop.ctrlf5.bangzhu.R;
 import com.orhanobut.logger.Logger;
-import com.sqk.emojirelease.Emoji;
-import com.sqk.emojirelease.FaceFragment;
+
 
 import java.util.HashMap;
 import java.util.List;
@@ -69,7 +68,7 @@ import cn.bmob.v3.exception.BmobException;
  * @project:ChatActivity
  * @date :2016-01-25-18:23
  */
-public class ChatActivity extends ParentWithNaviActivity implements ObseverListener,MessageListHandler,FaceFragment.OnEmojiClickListener{
+public class ChatActivity extends ParentWithNaviActivity implements ObseverListener,MessageListHandler/*FaceFragment.OnEmojiClickListener*/{
 
     @Bind(R.id.ll_chat)
     LinearLayout ll_chat;
@@ -131,9 +130,9 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
         initSwipeLayout();
         initVoiceView();
         initBottomView();
-
+/*
         FaceFragment faceFragment = FaceFragment.Instance();
-        getSupportFragmentManager().beginTransaction().add(R.id.pager_emo,faceFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.pager_emo,faceFragment).commit();*/
     }
 
     private void initSwipeLayout(){
@@ -275,7 +274,7 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
         });
     }
 
-    @Override
+ /*   @Override
     public void onEmojiDelete() {
 
     }
@@ -287,7 +286,7 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
         BmobIMVideoMessage video =new BmobIMVideoMessage(resourceIdToUri(this,emoji.getImageUri()).getEncodedPath());
         Toast.makeText(this, resourceIdToUri(this,emoji.getImageUri()).toString(), Toast.LENGTH_SHORT).show();
         c.sendMessage(video, listener);
-    }
+    }*/
     public static final String ANDROID_RESOURCE = "android.resource://";
     public static final String FOREWARD_SLASH = "/";
     private static Uri resourceIdToUri(Context context, int resourceId) {

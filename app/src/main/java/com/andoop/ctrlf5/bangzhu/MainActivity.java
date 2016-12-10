@@ -1,5 +1,6 @@
 package com.andoop.ctrlf5.bangzhu;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import com.andoop.andooptabframe.core.AndoopFrame;
 import com.andoop.andooptabframe.core.TabFrameConfig;
 import com.andoop.ctrlf5.bangzhu.data.sp.SPColumns;
 import com.andoop.ctrlf5.bangzhu.data.sp.SPUtils;
+import com.andoop.ctrlf5.bangzhu.modle.BzUser;
 import com.andoop.ctrlf5.bangzhu.view.BzExchangePager;
 import com.andoop.ctrlf5.bangzhu.view.BzIndexPager;
 import com.andoop.ctrlf5.bangzhu.view.BzMessagePager;
@@ -35,20 +37,24 @@ import static com.andoop.ctrlf5.bangzhu.R.drawable.user;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static Activity mm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initTabPage();
         initIm();
+        mm=this;
     }
 
     //初始化即使通讯
     private void initIm() {
 
         //connect server
-        User user = BmobUser.getCurrentUser(this,User.class);
-        BmobIM.connect(user.getObjectId(), new ConnectListener() {
+      /*  User user = BmobUser.getCurrentUser(this,User.class);
+        if(user==null)
+            return;*/
+        BmobIM.connect(BzUser.getCurentuser().getUserinfo().getUid()+"", new ConnectListener() {
             @Override
             public void done(String uid, BmobException e) {
                 if (e == null) {
@@ -64,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         BmobIM.getInstance().setOnConnectStatusChangeListener(new ConnectStatusChangeListener() {
             @Override
             public void onChange(ConnectionStatus status) {
-                Toast.makeText(MainActivity.this,"" + status.getMsg(), Toast.LENGTH_SHORT).show();
             }
         });
         //解决leancanary提示InputMethodManager内存泄露的问题
@@ -81,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onReady(AndoopFrame andoopFrame) {
                 andoopFrame.addPage(new BzIndexPager(),R.drawable.home_selector,"广场");
-                andoopFrame.addPage(new BzExchangePager(),R.drawable.exchage_selector,"发现");
                 andoopFrame.addPage(new BzSquarePager(),R.drawable.social_selector,"话题");
+                andoopFrame.addPage(new BzExchangePager(),R.drawable.exchage_selector,"发现");
                // andoopFrame.addPage(new BzMessagePager(),R.drawable.message_selector,"消息");
                 andoopFrame.addPage(new BzPersionPager(),R.drawable.person_selector,"我的");
                 andoopFrame.commit();
@@ -90,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSelect(AndoopPage andoopPage, int pos) {
-
             }
         });
     }
@@ -100,5 +104,9 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         //断开连接
         BmobIM.getInstance().disConnect();
+    }
+
+    public static void finishm(){
+        mm.finish();
     }
 }

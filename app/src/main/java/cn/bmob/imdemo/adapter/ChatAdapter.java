@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+import com.andoop.ctrlf5.bangzhu.modle.BzUser;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -52,7 +54,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     public ChatAdapter(Context context,BmobIMConversation c) {
         try {
-            currentUid = BmobUser.getCurrentUser(context).getObjectId();
+            currentUid = BzUser.getCurentuser().getUserinfo().getUid()+"";
         } catch (Exception e) {
             e.printStackTrace();
         }

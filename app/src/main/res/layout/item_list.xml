@@ -8,6 +8,7 @@
     >
 
     <LinearLayout
+        android:id="@+id/ll_guangchang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
@@ -164,6 +165,7 @@
                     android:layout_centerInParent="true"
                     android:src="@drawable/query"/>
                 <TextView
+                    android:id="@+id/tv_guangchang_qd_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/gray"
@@ -173,6 +175,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/wyqd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"

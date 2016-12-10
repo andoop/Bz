@@ -6,7 +6,9 @@ package com.andoop.ctrlf5.bangzhu.modle;
 * explain：一条发布的信息
 * * * * * * * * * * * * * * * * * * */
 
-public class ListShowDataBean {
+import java.io.Serializable;
+
+public class ListShowDataBean implements Serializable{
     public UserDataBean user;
     public String content;
     public String requare;

@@ -36,6 +36,7 @@ public class NewFriendManager {
         if(TextUtils.isEmpty(loginId)){
             throw new RuntimeException("you must login.");
         }
+
         NewFriendManager dao = daoMap.get(loginId);
         if (dao == null) {
             dao = new NewFriendManager(context,loginId);
